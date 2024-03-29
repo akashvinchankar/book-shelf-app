@@ -6,7 +6,7 @@ const Search = () => {
 
   return (
     <div>
-      <BookShelf books={[...booksDetails]} title={"Search"} />
+      <BookShelf books={[...booksDetails]} title={"Search"} search />
     </div>
   );
 };
