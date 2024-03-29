@@ -4,7 +4,15 @@ import { v4 as uuid } from "uuid";
 
 import { ReactNode } from "react";
 
-const AppContext = createContext({});
+interface AppContextType {
+  booksDetails: Book[];
+  setBooksDetails: React.Dispatch<React.SetStateAction<Book[]>>;
+}
+
+const AppContext = createContext<AppContextType>({
+  booksDetails: [],
+  setBooksDetails: () => {},
+});
 
 const generateBooksData = (books: Book[]) => {
   const categories = Object.values(CATEGORIES);
@@ -19,7 +27,9 @@ const generateBooksData = (books: Book[]) => {
 };
 
 const AppProvider = ({ children }: { children: ReactNode }) => {
-  const [booksDetails, setBooksDetails] = useState(generateBooksData(BOOKS));
+  const [booksDetails, setBooksDetails] = useState<Book[]>(
+    generateBooksData(BOOKS)
+  );
 
   return (
     <AppContext.Provider value={{ booksDetails, setBooksDetails }}>

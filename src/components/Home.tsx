@@ -7,15 +7,28 @@ const Home = () => {
   const { booksDetails } = useAppContext();
 
   return (
-    <div>
+    <div className="p-4">
       <Header />
-      <BookShelf
-        title="Currently Reading"
-        books={booksDetails.filter(
-          ({ category }: { category: string }) =>
-            category === CATEGORIES.CURRENTLY_READING
-        )}
-      />
+      <div className="">
+        <BookShelf
+          title="Currently Reading"
+          books={booksDetails.filter(
+            ({ category }) => category === CATEGORIES.CURRENTLY_READING
+          )}
+        />
+        <BookShelf
+          title="Want to Read"
+          books={booksDetails.filter(
+            ({ category }) => category === CATEGORIES.WANT_TO_READ
+          )}
+        />
+        <BookShelf
+          title="Read"
+          books={booksDetails.filter(
+            ({ category }) => category === CATEGORIES.READ
+          )}
+        />
+      </div>
     </div>
   );
 };

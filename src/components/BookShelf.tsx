@@ -8,11 +8,11 @@ interface BookShelfProps {
 
 const BookShelf = ({ books, title }: BookShelfProps) => {
   return (
-    <div>
-      <h2>{title}</h2>
-      <div>
+    <div className="bg-gray-100 p-4 rounded-md">
+      <h2 className="text-lg font-semibold mb-4">{title}</h2>
+      <div className="flex overflow-x-auto">
         {books.map((book: Book) => (
-          <BooksCard />
+          <BooksCard key={book.id} book={book} />
         ))}
       </div>
     </div>
