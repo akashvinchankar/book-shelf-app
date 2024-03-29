@@ -4,12 +4,12 @@ const Header = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="pb-4 flex justify-between items-center bg-white shadow-lg px-4 py-2">
+    <div className="bg-white shadow-lg py-4 px-6 flex justify-between items-center">
       <h1 className="text-3xl font-semibold text-gray-800 tracking-wide">
         Bookstore
       </h1>
       <div
-        className="search-btn cursor-pointer flex items-center justify-center w-10 h-10 bg-gray-200 rounded-full"
+        className="search-btn cursor-pointer flex items-center justify-center w-12 h-12 bg-gray-200 rounded-full hover:bg-gray-300"
         onClick={() => navigate("/search")}
       >
         <svg
